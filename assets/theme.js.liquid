@@ -1,0 +1,29 @@
+
+var ready = (callback) => {
+  if (document.readyState != "loading") callback();
+  else document.addEventListener("DOMContentLoaded", callback);
+}
+ready(() => { 
+});
+
+/* Header Navigation */
+
+document.addEventListener('click', function(event) {
+  if (event.target.hasAttribute("data-mega-menu-trigger")) {
+    event.preventDefault();
+    let navTriggerData = event.target.getAttribute("data-mega-menu-trigger");
+    let navItem = event.target;
+    let navItemMenu = document.querySelector(`[data-mega-menu=${navTriggerData}]`);
+    let navItemLevel = event.target.getAttribute("data-menu-level");
+    let expanded = navItem.getAttribute('aria-expanded') === 'true' || false;
+    const allNavItems = document.querySelectorAll(".mega-menu-section");
+
+    for (var i = 0; i < allNavItems.length;  i++) {
+        allNavItems[i].hidden = true;
+        allNavItems[i].setAttribute('aria-expanded', false)
+    }
+
+    navItem.setAttribute('aria-expanded', !expanded);
+    navItemMenu.hidden = !navItemMenu.hidden;
+  }
+});
