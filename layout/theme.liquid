@@ -10,7 +10,9 @@
 </head>
 <body>
     {% section "header" %}
-    {{ content_for_layout }}    
+    <main class="main-content">
+        {{ content_for_layout }}  
+    </main>
     {% section "footer" %}
     <script src="{{ theme.js | asset_url }}" defer></script>
 </body>
