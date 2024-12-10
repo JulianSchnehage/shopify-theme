@@ -9,7 +9,9 @@
     {{ content_for_header }} 
 </head>
 <body>
+    {% section "header" %}
     {{ content_for_layout }}    
+    {% section "footer" %}
     <script src="{{ theme.js | asset_url }}" defer></script>
 </body>
 </html>

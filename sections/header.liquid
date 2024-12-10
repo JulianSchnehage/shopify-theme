@@ -1,0 +1,29 @@
+{% assign menu = section.settings.header_menu %}
+
+<header>
+    <nav>
+        <ul>
+            {% for link in menu %}
+                <li href="{{ link.url }}">{{ link.title }}</li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>
+
+
+{% schema %}
+{
+    "name": "Header",
+    "settings": [
+            {
+                "type": "header",
+                "content": "Header settings" 
+            },
+            {
+                "type": "link_list",
+                "id": "header_menu",
+                "label": "Header Menu"
+            }
+        ]
+}
+{% endschema %}
